@@ -1,0 +1,28 @@
+
+Library Management System (FAST-NUCES Semester 3 Project)
+Author: Hamza CS-2023
+
+Architecture & Implementation:
+The system is constructed using core Java and Object-Oriented Programming principles.
+We implemented inheritance and polymorphism:
+public class LibraryItem {
+    protected String itemId;
+    protected String title;
+}
+public class Book extends LibraryItem {
+    private String isbn;
+}
+public interface Authenticable {
+    public boolean authenticate(String username, String password);
+}
+
+Database Integration:
+Relational persistence is handled through JDBC and MySQL:
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_db", "user", "pass");
+PreparedStatement stmt = conn.prepareStatement("SELECT * FROM books WHERE isbn = ?");
+CREATE TABLE books (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255),
+    isbn VARCHAR(50) UNIQUE
+);
+CRUD operations, user authentication, and transaction handling were successfully implemented.

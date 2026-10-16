@@ -1,0 +1,135 @@
+{
+  "benchmark_metadata": {
+    "version": "1.0",
+    "description": "ProofGraph AI Synthetic Experimental Benchmark Dataset for Student Skill Verification",
+    "target_cohort": "Pakistani Computer Science & Software Engineering Undergraduates",
+    "total_profiles": 4,
+    "injected_anomalies": ["exaggerated_proficiency", "ghost_claim", "timeline_conflict", "unrelated_certificate"]
+  },
+  "profiles": [
+    {
+      "id": "profile_hamza_fast",
+      "name": "Hamza Tariq",
+      "institution": "FAST-NUCES Lahore",
+      "degree": "BS Computer Science (6th Semester)",
+      "claims": [
+        {
+          "skill_slug": "java",
+          "stated_proficiency": "Advanced",
+          "claim_text": "Advanced Java Developer with expertise in enterprise OOP and database integration.",
+          "ground_truth_status": "MODERATE_EVIDENCE",
+          "is_exaggeration": true,
+          "expected_finding": "EXAGGERATION (Lacks enterprise microservices/Spring Boot; intermediate OOP verified)"
+        },
+        {
+          "skill_slug": "sql",
+          "stated_proficiency": "Intermediate",
+          "claim_text": "Relational database schema design and complex SQL queries with MySQL.",
+          "ground_truth_status": "EVIDENCE_SUPPORTED",
+          "is_exaggeration": false,
+          "expected_finding": "EVIDENCE_SUPPORTED"
+        },
+        {
+          "skill_slug": "machine-learning",
+          "stated_proficiency": "Expert",
+          "claim_text": "Production Machine Learning Engineer training deep neural networks for computer vision.",
+          "ground_truth_status": "UNSUPPORTED",
+          "is_exaggeration": true,
+          "expected_finding": "GHOST_CLAIM (0 repositories, 0 training scripts found)"
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "FAST-NUCES Library Management System Report",
+          "type": "project_report",
+          "text": "class LibraryItem { protected String id; } class Book extends LibraryItem { private String isbn; } Connection conn = DriverManager.getConnection('jdbc:mysql://localhost:3306/db'); PreparedStatement stmt = conn.prepareStatement('SELECT * FROM books'); CREATE TABLE books (id INT PRIMARY KEY, isbn VARCHAR(50));"
+        }
+      ]
+    },
+    {
+      "id": "profile_zainab_nust",
+      "name": "Zainab Fatima",
+      "institution": "NUST Islamabad",
+      "degree": "BS Software Engineering (8th Semester)",
+      "claims": [
+        {
+          "skill_slug": "react",
+          "stated_proficiency": "Intermediate",
+          "claim_text": "Frontend component development with React, custom hooks, and Tailwind CSS.",
+          "ground_truth_status": "EVIDENCE_SUPPORTED",
+          "is_exaggeration": false,
+          "expected_finding": "EVIDENCE_SUPPORTED"
+        },
+        {
+          "skill_slug": "cpp",
+          "stated_proficiency": "Advanced",
+          "claim_text": "Low-level systems programming in C++ with memory management and pointers.",
+          "ground_truth_status": "UNSUPPORTED",
+          "is_exaggeration": true,
+          "expected_finding": "GHOST_CLAIM (No C++ repositories or submissions)"
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "NUST Healthcare Portal Frontend",
+          "type": "github_repo",
+          "text": "import React, { useState, useEffect } from 'react'; export default function PatientDashboard() { const [patients, setPatients] = useState([]); useEffect(() => { fetch('/api/patients'); }, []); return <div>Patient Registry</div>; }"
+        }
+      ]
+    },
+    {
+      "id": "profile_bilal_uet",
+      "name": "Bilal Ahmed",
+      "institution": "UET Lahore",
+      "degree": "BSc Computer Engineering (4th Semester)",
+      "claims": [
+        {
+          "skill_slug": "python",
+          "stated_proficiency": "Expert",
+          "claim_text": "Lead Python Architect building distributed high-concurrency backends.",
+          "ground_truth_status": "WEAK_EVIDENCE",
+          "is_exaggeration": true,
+          "expected_finding": "EXAGGERATION (Only 1 beginner automation script detected)"
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "Simple File Renamer Script",
+          "type": "project_report",
+          "text": "import os def rename_files(): for file in os.listdir('.'): if file.endswith('.txt'): os.rename(file, 'backup_' + file) print('Renaming completed successfully')"
+        }
+      ]
+    },
+    {
+      "id": "profile_ayesha_itu",
+      "name": "Ayesha Khan",
+      "institution": "ITU Lahore",
+      "degree": "BS Computer Science (Graduated)",
+      "claims": [
+        {
+          "skill_slug": "fastapi",
+          "stated_proficiency": "Intermediate",
+          "claim_text": "RESTful microservice design and asynchronous endpoints with FastAPI and Pydantic.",
+          "ground_truth_status": "EVIDENCE_SUPPORTED",
+          "is_exaggeration": false,
+          "expected_finding": "EVIDENCE_SUPPORTED"
+        },
+        {
+          "skill_slug": "git",
+          "stated_proficiency": "Intermediate",
+          "claim_text": "Version control with Git feature branches and pull request code reviews.",
+          "ground_truth_status": "EVIDENCE_SUPPORTED",
+          "is_exaggeration": false,
+          "expected_finding": "EVIDENCE_SUPPORTED"
+        }
+      ],
+      "artifacts": [
+        {
+          "title": "E-Commerce Microservice API",
+          "type": "github_repo",
+          "text": "from fastapi import FastAPI, APIRouter router = APIRouter() @router.get('/products') async def list_products(): return [{'id': 1, 'name': 'Item'}] git commit -m 'Initial commit of FastAPI router' git push origin main"
+        }
+      ]
+    }
+  ]
+}
