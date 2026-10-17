@@ -55,6 +55,16 @@ app.include_router(agents.router, prefix=settings.API_V1_STR)
 app.include_router(applications.router, prefix=settings.API_V1_STR)
 app.include_router(research.router, prefix=settings.API_V1_STR)
 
+@app.get("/", tags=["Root"])
+async def root():
+    return {
+        "status": "online",
+        "service": settings.PROJECT_NAME,
+        "docs_url": "/docs",
+        "health_check": "/health",
+        "anti_hallucination_rule": "NO EVIDENCE -> NO FACTUAL CLAIM"
+    }
+
 @app.get("/health", tags=["Health"])
 async def health_check():
     return {
